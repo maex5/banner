@@ -46,8 +46,6 @@
             text-decoration: none;
         }
     </style>
-    
-    
 </head>
 <body>
     <a id="clicktag" href="#" target="_blank">
@@ -67,24 +65,24 @@
         }
 
         const clickUrl = getQueryParam('clickurl');
-        const storeTag = getQueryParam('oikotie_store_tag') || 'N/A';
         const cardId = getQueryParam('oikotie_card_id') || 'N/A';
-        const customerId = getQueryParam('oikotie_customer_id') || 'N/A';
-        const realtorId = getQueryParam('oikotie_realtor_account_id') || 'N/A';
+        const brokerId = getQueryParam('oikotie_broker_id') || 'N/A';
+        const vendorAdId = getQueryParam('oikotie_vendor_ad_id') || 'N/A';
+        const storeTag = getQueryParam('oikotie_store_tag') || 'N/A';
 
         console.log("Click URL:", clickUrl);
-        console.log("Store Tag:", storeTag);
         console.log("Card ID:", cardId);
-        console.log("Customer ID:", customerId);
-        console.log("Realtor ID:", realtorId);
+        console.log("Broker ID:", brokerId);
+        console.log("Vendor Ad ID:", vendorAdId);
+        console.log("Store Tag:", storeTag);
 
         document.getElementById('clicktag').href = clickUrl;
 
         const dynamicContent = `
-            <div class="pattern">oikotie_store_tag: ${storeTag}</div>
             <div class="pattern">oikotie_card_id: ${cardId}</div>
-            <div class="pattern">oikotie_customer_id: ${customerId}</div>
-            <div class="pattern">oikotie_realtor_account_id: ${realtorId}</div>
+            <div class="pattern">oikotie_broker_id: ${brokerId}</div>
+            <div class="pattern">oikotie_vendor_ad_id: ${vendorAdId}</div>
+            <div class="pattern">oikotie_store_tag: ${storeTag}</div>
         `;
 
         const banner = document.querySelector('.banner');
@@ -94,16 +92,11 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Päivitä dynaamiset tekstit
                     dynamicDiv.innerHTML = dynamicContent;
-
-                    // Näytä video
                     if (video) {
                         video.style.display = 'block';
                         video.play();
                     }
-
-                    // Lopeta observer
                     observer.disconnect();
                 }
             });
