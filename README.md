@@ -16,6 +16,15 @@ the `index.html` contains the banner with the following features:
 | `%%PATTERN:oikotie_store_tag%%` | Store tag, populated from GAM targeting.      |
 | `%%CACHEBUSTER%%`          | Ensures the URL is unique on every request to prevent caching issues.      |
 
+## testing locally
+1. use for example [Live Server - Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+2. open `index.html` with Live Server
+3. add these after url:
+```
+?clickurl=https://example.com&cachebuster=12345&oikotie_card_id=test_card&oikotie_broker_id=test_broker&oikotie_vendor_ad_id=test_vendor&oikotie_store_tag=test_tag
+```
+**NOTE**: `clickurl` won't redirect the same way as it will in GAM's production environment
+
 ## add to GAM as a Third party tag
 ```html
 <iframe
