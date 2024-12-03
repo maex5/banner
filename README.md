@@ -11,3 +11,13 @@
     style="border: none;">
 </iframe>
 ```
+## explanation of parameters
+
+| Parameter                  | Description                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| `%%CLICK_URL_ESC%%`        | A GAM macro that dynamically inserts the click URL.          |
+| `%%PATTERN:oikotie_card_id%%` | Oikotie ad ID, populated from GAM targeting. |
+| `%%PATTERN:oikotie_broker_id%%` | Broker ID, populated from GAM targeting.      |
+| `%%PATTERN:oikotie_vendor_ad_id%%` | Vendor ad ID (kohde id/Kohdenumero/kivi-id...), populated from GAM targeting. |
+| `%%PATTERN:oikotie_store_tag%%` | Store tag, populated from GAM targeting.      |
+| `%%CACHEBUSTER%%`          | Ensures the URL is unique on every request to prevent caching issues.      |
