@@ -37,6 +37,10 @@
             align-items: center;
             justify-content: center;
         }
+        .pattern {
+            margin: 5px 0;
+            word-break: break-word;
+        }
     </style>
 </head>
 <body>
@@ -55,10 +59,10 @@
         }
 
         const clickUrl = getQueryParam('clickurl');
-        const storeTag = getQueryParam('oikotie_store_tag');
-        const cardId = getQueryParam('oikotie_card_id');
-        const customerId = getQueryParam('oikotie_customer_id');
-        const realtorId = getQueryParam('oikotie_realtor_account_id');
+        const storeTag = getQueryParam('oikotie_store_tag') || 'N/A';
+        const cardId = getQueryParam('oikotie_card_id') || 'N/A';
+        const customerId = getQueryParam('oikotie_customer_id') || 'N/A';
+        const realtorId = getQueryParam('oikotie_realtor_account_id') || 'N/A';
 
         document.getElementById('clicktag').href = clickUrl;
 
