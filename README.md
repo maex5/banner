@@ -21,3 +21,9 @@
 | `%%PATTERN:oikotie_vendor_ad_id%%` | Vendor ad ID (kohde id/Kohdenumero/kivi-id...), populated from GAM targeting. |
 | `%%PATTERN:oikotie_store_tag%%` | Store tag, populated from GAM targeting.      |
 | `%%CACHEBUSTER%%`          | Ensures the URL is unique on every request to prevent caching issues.      |
+
+## GAM preview
+Open any company listing and add this after URL
+```
+?google_preview=APCQMr4Yi9sY8uW7ugYw8oHxwQaIAYCAgJDAssqnLQ&iu=117157013&gdfp_req=1&lineItemId=6850407285&creativeId=138499664789
+```
