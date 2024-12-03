@@ -40,13 +40,21 @@
         .pattern {
             margin: 5px 0;
             word-break: break-word;
+            color: black;
+        }
+        a {
+            text-decoration: none;
         }
     </style>
+    
+    
 </head>
 <body>
     <a id="clicktag" href="#" target="_blank">
         <div class="banner">
-            <div class="loading" id="dynamic-content"></div>
+            <div id="dynamic-content" class="loading">
+                <div class="pattern">Loading patterns...</div>
+            </div>
             <video class="video" muted playsinline>
                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             </video>
@@ -64,6 +72,12 @@
         const customerId = getQueryParam('oikotie_customer_id') || 'N/A';
         const realtorId = getQueryParam('oikotie_realtor_account_id') || 'N/A';
 
+        console.log("Click URL:", clickUrl);
+        console.log("Store Tag:", storeTag);
+        console.log("Card ID:", cardId);
+        console.log("Customer ID:", customerId);
+        console.log("Realtor ID:", realtorId);
+
         document.getElementById('clicktag').href = clickUrl;
 
         const dynamicContent = `
@@ -73,18 +87,23 @@
             <div class="pattern">oikotie_realtor_account_id: ${realtorId}</div>
         `;
 
-        document.getElementById('dynamic-content').innerHTML = dynamicContent;
-
         const banner = document.querySelector('.banner');
         const video = document.querySelector('.video');
-        const loading = document.querySelector('.loading');
+        const dynamicDiv = document.getElementById('dynamic-content');
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    loading.style.display = 'none';
-                    video.style.display = 'block';
-                    video.play();
+                    // Päivitä dynaamiset tekstit
+                    dynamicDiv.innerHTML = dynamicContent;
+
+                    // Näytä video
+                    if (video) {
+                        video.style.display = 'block';
+                        video.play();
+                    }
+
+                    // Lopeta observer
                     observer.disconnect();
                 }
             });
