@@ -2,7 +2,7 @@
 the `index.html` contains the banner with the following features:
 - gets the targeting parameters to the banner from the URL
 - updates content based on targeting parameters
-- shows content adn video starts playing when 50% in view (with `IntersectionObserver` and `threshold: 0.5`)
+- shows content and video starts playing when 50% in view (with `IntersectionObserver` and `threshold: 0.5`)
 - has two different links, both are tracked with GAM clickurl
 
 ## explanation of parameters
