@@ -30,12 +30,6 @@
             width: 100%;
             height: 50%;
         }
-        .loading {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
         .pattern {
             margin: 5px 0;
             word-break: break-word;
@@ -59,7 +53,7 @@
 </head>
 <body>
     <div class="banner">
-        <div id="dynamic-content" class="loading">
+        <div id="dynamic-content">
             <div class="pattern">Loading patterns...</div>
         </div>
         <video class="video" muted playsinline>
@@ -74,13 +68,15 @@
             return urlParams.get(param);
         }
 
-        const clickUrl = getQueryParam('clickurl') || 'https://example.com/click';
+        const clickUrl = getQueryParam('clickurl') || 'N/A';
+        const cachebuster = getQueryParam('cachebuster') || 'N/A';
         const cardId = getQueryParam('oikotie_card_id') || 'N/A';
         const brokerId = getQueryParam('oikotie_broker_id') || 'N/A';
         const vendorAdId = getQueryParam('oikotie_vendor_ad_id') || 'N/A';
         const storeTag = getQueryParam('oikotie_store_tag') || 'N/A';
 
         console.log("Click URL:", clickUrl);
+        console.log("Cachebuster:", cachebuster);
         console.log("Card ID:", cardId);
         console.log("Broker ID:", brokerId);
         console.log("Vendor Ad ID:", vendorAdId);
@@ -104,8 +100,13 @@
                 if (entry.isIntersecting) {
                     dynamicDiv.innerHTML = dynamicContent;
 
-                    googleLink.href = `${clickUrl}?redirect=${encodeURIComponent('https://www.google.com')}`;
-                    bingLink.href = `${clickUrl}?redirect=${encodeURIComponent('https://www.bing.com')}`;
+                    if (clickUrl !== 'N/A') {
+                        googleLink.href = `${clickUrl}&adurl=https://www.google.com`;
+                        bingLink.href = `${clickUrl}&adurl=https://www.bing.com`;
+                    } else {
+                        googleLink.href = 'https://www.google.com';
+                        bingLink.href = 'https://www.bing.com';
+                    }
 
                     if (video) {
                         video.style.display = 'block';
