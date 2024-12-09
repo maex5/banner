@@ -40,5 +40,5 @@ the `index.html` contains the banner with the following features:
 ## GAM preview
 Open any company listing and add this after URL
 ```
-?google_preview=APCQMr4Yi9sY8uW7ugYw8oHxwQaIAYCAgJDAssqnLQ&iu=117157013&gdfp_req=1&lineItemId=6850407285&creativeId=138499664789
+?google_preview=WKav0w2eI08Y4t7augYw4vqPwgaIAYCAgJDA1c2N9wE&iu=117157013&gdfp_req=1&lineItemId=6850407285&creativeId=138499664789
 ```
